@@ -1,0 +1,68 @@
+#pecas-computador{
+    width: 580px;
+    height: 460px;
+    padding: 25px 0 0 0;
+    background-color: crimson;
+    float: left;
+}
+
+#pecas-computador ul{
+    background-color: brown;
+    height: 100px;
+    margin:0;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+#pecas-computador ul li{
+    background-color: rgb(204, 61, 61);
+    height: 100px;
+    width: 90px;
+    float: left;
+    list-style: None;
+    margin: 0;
+    padding: 0;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.peca-item{
+    height: 100px;
+    width: 100px;
+    position: relative;
+}
+
+.peca-item-ram{
+    position: absolute;
+    height: 75px;
+    width: 100px;
+    margin-top: 25px;
+    top: 0;
+    left: 0;
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: brown;
+    text-align: center;
+}
+
+.peca-item-ram-menos{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 50px;
+    height: 75px;
+    font-size: 50px;
+    padding-top: 25px;
+    text-align: center;    
+}
+
+.peca-item-ram-mais{
+    position: absolute;
+    top:0;
+    left: 50px;
+    width: 50px;
+    height: 75px;
+    font-size: 50px;
+    padding-top: 25px;
+    text-align: center;
+}

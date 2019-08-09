@@ -1,0 +1,12 @@
+<div id="loja-lista" >
+<button (click)="novoComputador()" >novo pc</button>
+<button (click)="listarComputador()" >listar</button>
+<ul>
+    <li *ngFor="let computador of computadores" >
+          {{computador.placa_mae['produto']}}
+        <app-item-computador (click)="definirComputador(computador)" [computador]='computador' ></app-item-computador>
+    </li>
+</ul>
+</div>
+<button (click)="registrarComputador()" >registrar</button>
+<app-pecas-computador [computador]="computador" ></app-pecas-computador>

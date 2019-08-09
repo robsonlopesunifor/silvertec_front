@@ -1,0 +1,40 @@
+<div id="pecas-computador" >
+    <ul>
+      <li *ngFor="let placa_mae of pecas['placa_mae']" >
+          <div class="peca-item"
+               [style.background-color]="pecaEscolhida['placa_mae'][placa_mae['id']] ? 'red' : 'blue'"
+               (click)="definirPeca('placa_mae',placa_mae)" >
+               {{placa_mae.produto}}
+          </div>
+      </li>
+    </ul>
+    <ul>
+      <li *ngFor="let processador of pecas['processador']" >
+          <div class="peca-item"
+               [style.background-color]="pecaEscolhida['processador'][processador['id']] ? 'red' : 'blue'" 
+               (click)="definirPeca('processador',processador)" >
+               {{processador.produto}}
+          </div>
+      </li>
+    </ul>
+    <ul>
+      <li *ngFor="let memoria_ram of pecas['memoria_ram']" >
+          <div class="peca-item" 
+               [style.background-color]="pecaEscolhida['memoria_ram'][memoria_ram['id']] ? 'red' : 'blue'" >
+            <div class="peca-item-ram" >0</div>
+            <div class="peca-item-ram-menos" (click)="definirMemoriaRam('menos',memoria_ram)" >-</div>    
+            {{memoria_ram.produto}}, {{memoria_ram.tamanho}}
+            <div class="peca-item-ram-mais"  (click)="definirMemoriaRam('mais',memoria_ram)" >+</div>    
+          </div>
+      </li>
+    </ul>
+    <ul>
+      <li *ngFor="let placa_video of pecas['placa_video']" >
+          <div class="peca-item"
+               [style.background-color]="pecaEscolhida['placa_video'][placa_video['id']] ? 'red' : 'blue'"
+               (click)="definirPeca('placa_video',placa_video)" >
+               {{placa_video.produto}}
+          </div>
+      </li>
+    </ul>
+</div>

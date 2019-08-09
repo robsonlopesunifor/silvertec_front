@@ -1,0 +1,28 @@
+#cadastro{
+    background-color: chocolate;
+    width: 100%;
+    height: 300px;
+}
+
+#cadastro-caixa{
+    background-color: crimson;
+    width: 40%;
+    align-items: center;
+    margin: 0 auto;
+}
+
+#cadastro-formulario{
+    background-color: cornflowerblue;
+    height: 200px;
+}
+
+.cadastro-form-campo{
+    height: 40px;
+    width: 100%;
+    background-color: chartreuse;
+    margin-bottom: 10px;
+}
+
+#botao-login{
+    float: right;
+}
