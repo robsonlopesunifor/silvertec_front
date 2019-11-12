@@ -1,4 +1,3 @@
-import { FormularioService } from './formulario/formulario.service';
 import { RegistroService } from './registro/registro.service';
 import { LojaService } from './loja/loja.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -7,7 +6,6 @@ import { HttpModule } from '@angular/http';
 
 
 import { AppComponent } from './app.component';
-import { FormularioComponent } from './formulario/formulario.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegistroComponent } from './registro/registro.component';
 import { CadastroComponent } from './registro/cadastro/cadastro.component';
@@ -21,7 +19,6 @@ import { ROTAS } from './app.routes';
 @NgModule({
   declarations: [
     AppComponent,
-    FormularioComponent,
     RegistroComponent,
     CadastroComponent,
     LoginComponent,
@@ -35,7 +32,7 @@ import { ROTAS } from './app.routes';
     HttpModule,
     RouterModule.forRoot(ROTAS)
   ],
-  providers: [FormularioService,RegistroService,LojaService],
+  providers: [RegistroService,LojaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

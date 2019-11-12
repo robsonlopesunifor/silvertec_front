@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   public token:object;
-  private mensagem:object; 
+  public mensagem:string = ''; 
   
 
   profileForm = new FormGroup({
@@ -25,11 +25,15 @@ export class LoginComponent implements OnInit {
               private router: Router) { }
 
   logar():void{
+    this.mensagem = 'Carregando ...'
     var username = this.profileForm.value['username'];
     var password = this.profileForm.value['password'];
     this.registroService.logarCliente(username,password)
                         .subscribe(token => {this.lojaService.registrarToken(token['token']);
-                                             this.router.navigate(['/loja']);}); 
+                                             this.router.navigate(['/loja']);
+                                             this.mensagem = '';
+                                             console.log(token) },
+                                  err => { this.mensagem = 'Usuario ou senha invalido'; }); 
   }
 
   onSubmit() {

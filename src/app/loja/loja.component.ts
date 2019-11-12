@@ -1,6 +1,8 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { Computador } from './computador.model';
 import { LojaService } from './loja.service';
+import { Router } from '@angular/router';
+import { PecasComputadorComponent } from './pecas-computador/pecas-computador.component';
 
 @Component({
   selector: 'app-loja',
@@ -9,37 +11,61 @@ import { LojaService } from './loja.service';
 })
 export class LojaComponent implements OnInit {
 
-  private acao:string = '';
+  public ocutar_caixa_item:boolean = false;
+  public acao:string = '';
   public computador:Computador;
-  public computadores:object = [
-    {placa_mae:'MP',  placa_video:'#CFCDCD', processador:'#FF7D00'},
-    {placa_mae:'MP',  placa_video:'#CFCDCD', processador:'#F0C18C'},
-    {placa_mae:'CO',  placa_video:'#625D5D', processador:'#CFCDCD'},
-    {placa_mae:'BTN', placa_video:'#CFCDCD', processador:'#3B75B6'},
-    {placa_mae:'SB',  placa_video:'#CFCDCD', processador:'#81D7FD'},
-    {placa_mae:'BB',  placa_video:'#CFCDCD', processador:'#81D7FD'}
-  ]
+  public computadores:object = []
+  public mensagens:string = '';
+  @ViewChild('PecasComputador') PecasComputador:PecasComputadorComponent;
 
-  constructor(private lojaService: LojaService) { }
+  constructor(private lojaService: LojaService,
+              private router: Router) { }
 
 
   listarComputador(){
     this.lojaService.listarComputador()
-                    .subscribe(lista => { this.computadores = lista;
-                                          console.log(lista)});
+                    .subscribe(lista => { this.computadores = lista;});
   }
 
   definirComputador(computador: Computador){
+    this.listarComputador()
+    this.ocutar_caixa_item = true;
     this.acao = 'atualizar';
     this.computador = computador;
+    this.PecasComputador.selecionarPecasComComputador(this.computador);
   }
 
   registrarComputador(){
+    var computador_id = this.estrairIdsComputador()
+    this.mensagens = 'Carregando ...'
+    if(this.acao == 'criar'){
+      this.lojaService.registrarComputador(computador_id)
+                      .subscribe(lista => { this.listarComputador();
+                                            this.mensagens = ''},
+                                 err => { this.mensagensDeErro(err) });
+    }else if(this.acao == 'atualizar'){
+      var id = this.computador['id'];
+      this.lojaService.atualizarComputador(computador_id,id)
+                      .subscribe(lista => { this.listarComputador();
+                                            this.mensagens = ''},
+                                 err => { this.mensagensDeErro(err) });
+    }
+  }
+
+  mensagensDeErro(erro:object){
+    console.log(erro)
+    var erro_json = erro['_body'];
+    let erro_obj = JSON.parse(erro_json);
+    this.mensagens = erro_obj.non_field_errors[0]
+    console.log(this.mensagens)
+  }
+
+  estrairIdsComputador():object{
     var computador_id:object = {};
-    console.log(this.computador)
     for(let pecas in this.computador){
       if(pecas != 'memoria_ram'){
-        computador_id[pecas] = this.computador[pecas]['id']
+        if(this.computador[pecas])
+          computador_id[pecas] = this.computador[pecas]['id']
       }else{
         computador_id[pecas] = []
         for(var i = 0; i < this.computador[pecas].length;i++){
@@ -51,12 +77,11 @@ export class LojaComponent implements OnInit {
         }
       }
     }
-    console.log(computador_id)
-    this.lojaService.registrarComputador(computador_id)
-                    .subscribe(lista => { console.log(lista)});
+    return computador_id;
   }
 
   novoComputador(){
+    this.ocutar_caixa_item = true;
     this.acao = 'criar';
     this.computador = {placa_mae:{produto:'',
                                   processador:'',
@@ -67,10 +92,12 @@ export class LojaComponent implements OnInit {
                                     marca:''},
                        memoria_ram:[]
                       }
+    this.PecasComputador.selecionarPecasComComputador(this.computador);
   }
 
   ngOnInit(){
-    
+    this.novoComputador()
+    this.listarComputador()
   }
 
 }

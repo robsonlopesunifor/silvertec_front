@@ -1,3 +1,190 @@
+#pecas{
+    width: 670px;
+    height: 490px;
+}
+
+#placa_mae{
+    width: 168px;
+    height: 490px;
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    float: left;
+}
+
+#placa_mae li{
+    width: 168px;
+    height: 162px;
+    margin-bottom: 1px;
+    list-style: none;
+}
+
+.placa_mae_ativo{
+    width: 168px;
+    height: 162px;
+    margin-bottom: 1px;
+    list-style: none;
+    overflow: hidden;
+}
+
+.placa_mae_ativo:hover .placa_mae_info{
+    height: 162px;
+}
+
+.placa_mae_peca{
+    width: 168px;
+    height: 162px;
+    margin-bottom: 1px;
+    list-style: none;
+    position: relative;
+    cursor: pointer;
+}
+
+.placa_mae_peca img{
+    position: absolute;
+    width: 168px;
+    height: 162px;
+    top: 0px;
+    left: 0px;
+}
+
+#processador{
+    width: 130px;
+    height: 490px;
+    padding: 0px;
+    margin: 0px;
+    margin: 0px 1px;
+    list-style: none;
+    float: left;
+}
+
+#processador li{
+    width: 130px;
+    height: 121px;
+    margin-bottom: 1px;
+    list-style: none;
+}
+
+.processador_ativo{
+    width: 130px;
+    height: 121px;
+    margin-bottom: 1px;
+    list-style: none;
+    overflow: hidden;
+}
+
+.processador_ativo:hover .processador_info{
+    height: 121px;
+}
+
+.processador_peca{
+    width: 130px;
+    height: 121px;
+    margin-bottom: 1px;
+    list-style: none;
+    position: relative;
+    cursor: pointer;
+}
+
+.processador_peca img{
+    position: absolute;
+    width: 130px;
+    height: 121px;
+    top: 0px;
+    left: 0px;
+}
+
+#placa_video{
+    width: 162px;
+    height: 490px;
+    padding: 0px;
+    margin: 0px 1px;
+    list-style: none;
+    float: left;
+}
+
+#placa_video li{
+    width: 162px;
+    height: 162px;
+    margin-bottom: 1px;
+    list-style: none;
+}
+
+.placa_video_ativo{
+    width: 162px;
+    height: 162px;
+    margin-bottom: 1px;
+    list-style: none;
+    overflow: hidden;
+}
+
+.placa_video_ativo:hover .placa_video_info{
+    height: 162px;
+}
+
+.placa_video_peca{
+    width: 162px;
+    height: 162px;
+    margin-bottom: 1px;
+    list-style: none;
+    position: relative;
+    cursor: pointer;
+}
+
+.placa_video_peca img{
+    position: absolute;
+    width: 162px;
+    height: 162px;
+    top: 0px;
+    left: 0px;
+}
+
+#ram{
+    width: 200px;
+    height: 490px;
+    padding: 0px;
+    margin: 0px;
+    margin: 0px 1px;
+    list-style: none;
+    float: left;
+}
+
+#ram li{
+    width: 200px;
+    height: 97px;
+    margin-bottom: 1px;
+    list-style: none;
+}
+
+.ram_ativo{
+    width: 200px;
+    height: 97px;
+    margin-bottom: 1px;
+    list-style: none;
+    overflow: hidden;
+}
+
+.ram_peca{
+    width: 200px;
+    height: 97px;
+    margin-bottom: 1px;
+    list-style: none;
+    position: relative;
+}
+
+.ram_peca img{
+    position: absolute;
+    width: 200px;
+    height: 97px;
+    top: 0px;
+    left: 0px;
+}
+
+
+
+
+
+
 #pecas-computador{
     width: 580px;
     height: 460px;
@@ -34,35 +221,36 @@
 
 .peca-item-ram{
     position: absolute;
-    height: 75px;
+    height: 30px;
     width: 100px;
-    margin-top: 25px;
-    top: 0;
-    left: 0;
-    font-size: 50px;
+    bottom: 0;
+    left: 50px;
+    font-size: 30px;
     font-family: Arial, Helvetica, sans-serif;
-    color: brown;
+    color: #FFF;
     text-align: center;
 }
 
 .peca-item-ram-menos{
     position: absolute;
-    top:0;
+    bottom:0;
     left: 0;
     width: 50px;
-    height: 75px;
+    height: 40px;
     font-size: 50px;
-    padding-top: 25px;
-    text-align: center;    
+    text-align: center;
+    color: #FFF; 
+    cursor: pointer;   
 }
 
 .peca-item-ram-mais{
     position: absolute;
-    top:0;
-    left: 50px;
+    bottom:0;
+    right: 0px;
     width: 50px;
-    height: 75px;
+    height: 40px;
     font-size: 50px;
-    padding-top: 25px;
     text-align: center;
+    color: #FFF;
+    cursor: pointer;
 }

@@ -9,10 +9,18 @@ import { Computador } from '../computador.model';
 export class ItemComputadorComponent implements OnInit {
 
   @Input() computador: Computador;
+  public mensagem:string = '';
 
   constructor() { }
 
+  mensagemItens(){
+    this.mensagem += this.computador.placa_mae['produto']+' - ';
+    this.mensagem += this.computador.processador['produto']+' - ';
+    this.mensagem += this.computador.placa_video['produto']+' - ';
+  }
+
   ngOnInit() {
+    this.mensagemItens();
   }
 
 }

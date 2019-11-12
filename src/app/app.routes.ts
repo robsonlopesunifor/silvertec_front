@@ -6,7 +6,7 @@ import { LojaComponent } from "./loja/loja.component";
 
 export const ROTAS: Routes = [
 
-  	{path: 'login', component: LoginComponent },
+  	{path: '', component: LoginComponent },
   	{path: 'cadastro', component: CadastroComponent },
  	{path: 'loja', component: LojaComponent }
 

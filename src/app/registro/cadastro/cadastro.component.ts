@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { RegistroService } from '../registro.service';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro',
@@ -10,6 +11,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class CadastroComponent implements OnInit {
 
   public token:object;
+  public mensagem:string = ''; 
 
   @Output() add = new EventEmitter()
 
@@ -19,18 +21,19 @@ export class CadastroComponent implements OnInit {
     password: new FormControl(''),
   });
 
-  private mensagem:object; 
 
-  constructor(private registroService: RegistroService) { }
+  constructor(private registroService: RegistroService,
+              private router: Router) { }
 
   cadastrar():void{
+    this.mensagem = "Cadastrando ..."
     var username = this.profileForm.value['username'];
     var email = this.profileForm.value['email'];
     var password = this.profileForm.value['password'];
-    console.log(username,password)
     this.registroService.cadastrarCliente(username,email,password)
                         .subscribe(confronto => {this.token = confronto;
-                                                 this.add.emit(this.token['Token'])});
+                                                 this.add.emit(this.token['Token']);
+                                                 this.router.navigate(['']);});
   
   }
 
@@ -42,6 +45,7 @@ export class CadastroComponent implements OnInit {
 
 
   ngOnInit() {
+    
   }
 
 }

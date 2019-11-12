@@ -1,39 +1,36 @@
-<div id="pecas-computador" >
-    <ul>
-      <li *ngFor="let placa_mae of pecas['placa_mae']" >
-          <div class="peca-item"
-               [style.background-color]="pecaEscolhida['placa_mae'][placa_mae['id']] ? 'red' : 'blue'"
-               (click)="definirPeca('placa_mae',placa_mae)" >
-               {{placa_mae.produto}}
+<div id="pecas" >
+    <ul id="placa_mae" >
+      <li class="placa_mae_ativo" *ngFor="let placa_mae of pecas['placa_mae']" >
+          <div class="placa_mae_peca" (click)="definirPeca('placa_mae',placa_mae)" >
+               <img src="/assets/placa_mae_luz.fw.png" *ngIf="pecaEscolhida.placa_mae[placa_mae.id]" />
+               <img [src]="imagemDaPeca('placa_mae',placa_mae)" />
           </div>
       </li>
     </ul>
-    <ul>
-      <li *ngFor="let processador of pecas['processador']" >
-          <div class="peca-item"
-               [style.background-color]="pecaEscolhida['processador'][processador['id']] ? 'red' : 'blue'" 
-               (click)="definirPeca('processador',processador)" >
-               {{processador.produto}}
+    <ul id="processador" >
+      <li class="processador_ativo" *ngFor="let processador of pecas['processador']" >
+          <div class="processador_peca" (click)="definirPeca('processador',processador)" >
+               <img src="/assets/processador_luz.fw.png" *ngIf="pecaEscolhida.processador[processador.id]" />
+               <img [src]="imagemDaPeca('processador',processador)" />
           </div>
       </li>
     </ul>
-    <ul>
-      <li *ngFor="let memoria_ram of pecas['memoria_ram']" >
-          <div class="peca-item" 
-               [style.background-color]="pecaEscolhida['memoria_ram'][memoria_ram['id']] ? 'red' : 'blue'" >
-            <div class="peca-item-ram" >0</div>
+    <ul id="placa_video" >
+        <li class="placa_video_ativo" *ngFor="let placa_video of pecas['placa_video']" >
+            <div class="placa_video_peca" (click)="definirPeca('placa_video',placa_video)" >
+                <img src="/assets/placa_video_luz.fw.png" *ngIf="pecaEscolhida.placa_video[placa_video.id]" />
+                <img [src]="imagemDaPeca('placa_video',placa_video)" />
+            </div>
+        </li>
+    </ul>
+    <ul id="ram" >
+      <li class="ram_ativo" *ngFor="let memoria_ram of pecas['memoria_ram']" >
+          <div class="ram_peca" >
+            <img src="/assets/ram_luz.fw.png" *ngIf="pecaEscolhida.memoria_ram[memoria_ram.id][0]" />
+            <img [src]="imagemDaPeca('ram',memoria_ram)" />
             <div class="peca-item-ram-menos" (click)="definirMemoriaRam('menos',memoria_ram)" >-</div>    
-            {{memoria_ram.produto}}, {{memoria_ram.tamanho}}
+            <div class="peca-item-ram" >{{quantidadeDeMemoriaRam(memoria_ram)}}</div>   
             <div class="peca-item-ram-mais"  (click)="definirMemoriaRam('mais',memoria_ram)" >+</div>    
-          </div>
-      </li>
-    </ul>
-    <ul>
-      <li *ngFor="let placa_video of pecas['placa_video']" >
-          <div class="peca-item"
-               [style.background-color]="pecaEscolhida['placa_video'][placa_video['id']] ? 'red' : 'blue'"
-               (click)="definirPeca('placa_video',placa_video)" >
-               {{placa_video.produto}}
           </div>
       </li>
     </ul>

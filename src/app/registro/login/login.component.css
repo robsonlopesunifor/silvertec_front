@@ -1,32 +1,81 @@
+
 #login{
-    background-color: chocolate;
-    width: 100%;
-    height: 300px;
+    width: 679px;
+    height: 505px;
+    background-image: url("/assets/login.png");
+    background-color: #E84347;
 }
 
 #login-caixa{
-    background-color: crimson;
-    width: 40%;
-    align-items: center;
-    margin: 0 auto;
+    width: 330px;
+    height: 486px;
+    margin: 10px;
+    float: right;
+    position: relative;
 }
 
 #login-formulario{
-    background-color: cornflowerblue;
-    height: 200px;
+    width: 260px;
+    position: absolute;
+    top:100px;
+    left: 35px;
 }
 
 .login-form-campo{
+    height: 60px;
+    width: 260px;
+    color: #D2D2D2;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    margin-bottom: 40px;
+}
+
+.login-form-campo input{
+    border: none;
+    background: transparent;
     height: 40px;
-    width: 100%;
-    background-color: chartreuse;
-    margin-bottom: 10px;
+    width: 260px;
+    color: #B0B0B0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    border-bottom: 1px solid #B0B0B0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-radius: 0;
+    text-align: center;
 }
 
-#botao-logar{
-    float: right;
+.login-form-campo input:focus{
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: none;
 }
 
-#botao-cadastrar{
-    float: right;
+button{
+    width: 130px;
+    height: 30px;
+    background-color: #E84347;
+    border: none;
+    color: #FFF;
+    cursor: pointer;
+}
+
+#cadastrar{
+    position: absolute;
+    top: 300px;
+    left: 165px;
+    background-color: #244A8A;
+}
+
+#mensagem{
+    position: absolute;
+    width: 250px;
+    height: 30px;
+    top: 350px;
+    left: 40px;
+    padding-top: 20px;
+    text-align: center;
+    color: #FFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
 }

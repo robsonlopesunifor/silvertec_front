@@ -3,18 +3,20 @@
 <form id="login-formulario" [formGroup]="profileForm" (ngSubmit)="onSubmit()" >
 
   <div class="login-form-campo" >
-      Usuario:
+        USUARIO:
       <input type="text" formControlName="username">
   </div>
   <div class="login-form-campo" >
-      Senha:
-      <input type="text" formControlName="password">
+        SENHA:
+      <input type="password" formControlName="password">
   </div>
   
-  <button type="submit" [disabled]="!profileForm.valid">Logar</button>
+  <button id="logar" type="submit" [disabled]="!profileForm.valid">Logar</button>
   
 </form>
 
-<button id="botao-cadastrar" [routerLink]="['/cadastro']" >cadastro</button>
+<button id="cadastrar" [routerLink]="['/cadastro']" >cadastro</button>
+<div id="mensagem">{{mensagem}}</div>
 </div>
 </div>
+

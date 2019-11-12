@@ -10,8 +10,8 @@ import { Headers } from '@angular/http'
 @Injectable()
 export class LojaService {
 
-  private _Url = 'http://localhost:8000/'; //'https://silvertec-back.herokuapp.com/';
-  private token:string = '' //'31d06f5d9cd8253554be462397aab438f9d102ca';
+  private _Url = 'https://silvertec-back.herokuapp.com/';
+  private token:string = ''; //'31d06f5d9cd8253554be462397aab438f9d102ca';
 
   registrarToken(token:string)
   {	
@@ -43,6 +43,16 @@ export class LojaService {
       headers.append('Authorization', _token);
       headers.append('Content-Type', 'application/json');
       return this._http.post(url, JSON.stringify(computador),{headers}).map(res=> res.json());               
+  }
+
+  atualizarComputador(computador:object,id:string):Observable<object> 
+  { 
+      var url = this._Url+'computador/'+id+'/';
+      var _token = 'Token  '+this.token;
+      const headers = new Headers();
+      headers.append('Authorization', _token);
+      headers.append('Content-Type', 'application/json');
+      return this._http.put(url, JSON.stringify(computador),{headers}).map(res=> res.json());               
   }
 
 }

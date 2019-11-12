@@ -1,6 +1,6 @@
 <div id="cadastro" >
     <div id="cadastro-caixa" >
-        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" >
+        <form id="cadastro-formulario" [formGroup]="profileForm" (ngSubmit)="onSubmit()" >
         <div class="cadastro-form-campo" >
             Usuario:
             <input type="text" formControlName="username">
@@ -11,12 +11,13 @@
         </div>
         <div class="cadastro-form-campo" >
             Senha:
-            <input type="text" formControlName="password">
+            <input type="password" formControlName="password">
         </div>
         
-        <button type="submit" [disabled]="!profileForm.valid">Cadastrar</button>
+        <button id="cadastrar" type="submit" [disabled]="!profileForm.valid">Cadastrar</button>
             
         </form>
-        <button id="botao-login" [routerLink]="['/login']" >logar</button>
+        <button id="logar" [routerLink]="['']" >logar</button>
+        <div id="mensagem">{{mensagem}}</div>
     </div>
 </div>
